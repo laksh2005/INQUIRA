@@ -21,7 +21,7 @@ const Login = () => {
       onSubmit={(e) => e.preventDefault()}
     >
       <h1 className="font-bold text-3xl py-4">{isSignUpForm ? "Sign Up" : "Sign In"}</h1>
-      <p className="p-4 text-gray-300 hover:text-white cursor-pointer hover:text-gray-500" onClick={toggleSignUpForm}>
+      <p className="p-4 text-gray-300 hover:text-white cursor-pointer" onClick={toggleSignUpForm}>
         {isSignUpForm ? "Already a user? Sign In now." : "New to GAIL Bot? Sign up now."}
       </p>
       
