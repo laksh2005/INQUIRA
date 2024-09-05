@@ -8,7 +8,7 @@ totp = pyotp.TOTP(key)
 otp_value = totp.now()
 print(otp_value)
 
-user_email = 'bhawnaagg48@gmail.com'  # Replace with the user's email address
+user_email = 'raghavagg2005@gmail.com'  # Replace with the user's email address
 
 # Create the email message
 msg = MIMEText(f"Your OTP is: {otp_value}")
