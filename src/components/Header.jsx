@@ -18,7 +18,7 @@ const Header = () => {
         <li className="flex items-center justify-center px-4 text-white font-bold hover:bg-white hover:text-black rounded-lg"><Link to='/info'>Info</Link></li>
         <li className="flex items-center justify-center px-4 text-white font-bold hover:bg-white hover:text-black rounded-lg"><Link to='/aboutus'>About Us</Link></li>
         <li className="flex items-center justify-center px-4 text-white font-bold hover:bg-white hover:text-black rounded-lg"><Link to='/contactus'>Contact Us</Link></li>
-        <li className="items-center justify-center"><button className="px-8 rounded-lg font-bold text-white hover:text-black hover:bg-red-500">Sign Up</button></li>
+        <li className="items-center justify-center"><button className="px-8 rounded-lg font-bold text-white hover:text-black hover:bg-green-600"><Link to="/login">Sign Up</Link></button></li>
       </ul>
     </div>
   </div>

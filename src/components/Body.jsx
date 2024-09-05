@@ -32,7 +32,7 @@ const Body = () => {
         {
             path:"/guide",
             element: <Guide />
-        }
+        },
     ])
     
   return (
