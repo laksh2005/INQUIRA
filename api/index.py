@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify, make_response, render_template
+from flask_cors import CORS
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson import ObjectId
@@ -9,13 +10,13 @@ import datetime
 
 # load .env
 load_dotenv()
-
 app = Flask(__name__)
+CORS(app)
+
 app.config.from_prefixed_env()
 mongo = PyMongo(app)
 
-
-@app.route('/register', methods=['POST'])
+@app.route('/api/register', methods=['POST'])
 def register():
     data = request.get_json()
     if mongo.db.users.find_one({'email': data['email']}):
@@ -33,7 +34,7 @@ def register():
     mongo.db.non_verified_users.insert_one(temp_user)
     return jsonify({'message': 'An OTP has been sent to your email'}), 201
 
-@app.route('/verify-email', methods=['POST'])
+@app.route('/api/verify-email', methods=['POST'])
 def verifyEmail():
     data = request.get_json()
     user = mongo.db.non_verified_users.find_one({'email': data['email']})
@@ -54,7 +55,7 @@ def verifyEmail():
     mongo.db.non_verified_users.delete_one({'email': data['email']})
     return jsonify({'message': 'User verified'}), 201
 
-@app.route('/login', methods=['POST'])
+@app.route('/api/login', methods=['POST'])
 def login():
     data = request.get_json()
     user = mongo.db.users.find_one({'email': data['email']})
@@ -66,7 +67,7 @@ def login():
 
     return jsonify({'message': 'An OTP has been sent to your email'}), 200
 
-@app.route('/login/otp-verify', methods=['POST'])
+@app.route('/api/login/otp-verify', methods=['POST'])
 def loginOTPVerify():
     data = request.get_json()
     user = mongo.db.users.find_one({'email': data['email']})
@@ -77,7 +78,7 @@ def loginOTPVerify():
         return jsonify({'message': 'OTP expired'}), 400
     
     mongo.db.users.update_one({'email': data['email']}, {'$set': {'otp': None, 'otp_expiry': None}})
-    
+
     access_token_expiration = datetime.datetime.utcnow() + datetime.timedelta(minutes=15)
     refresh_token_expiration = datetime.datetime.utcnow() + datetime.timedelta(days=7)
 
@@ -96,7 +97,7 @@ def loginOTPVerify():
     response.set_cookie('refresh_token', refresh_token, httponly=True, secure=True, samesite='Lax')
     return response
 
-@app.route('/refresh', methods=['POST'])
+@app.route('/api/refresh', methods=['POST'])
 def refresh():
     refresh_token = request.cookies.get('refresh_token')
     if not refresh_token:
@@ -116,7 +117,7 @@ def refresh():
     response.set_cookie('refresh_token', '', expires = 0)
     return response
 
-@app.route('/protected', methods=['GET'])
+@app.route('/api/protected', methods=['GET'])
 def protected():
     token = request.headers.get('Authorization')
     if not token:
@@ -141,6 +142,8 @@ def protected():
 
 if __name__ == '__main__':
     app.run(
+        use_reloader = True,
         host = '0.0.0.0',
-        port = 8000
+        port = 8000,
+        threaded = True
     )
