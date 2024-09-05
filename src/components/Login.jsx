@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Header from './Header';
 
 const Login = () => {
 
@@ -9,10 +10,14 @@ const Login = () => {
   }
 
   return (
-    <div className="bg-gradient-to-br  from-black to-gray-600 min-h-screen flex justify-center items-center">
+    <div>
+      <div>
+      <Header />
+    </div>
 
+    <div className="bg-gradient-to-br  from-black to-gray-600 min-h-screen flex justify-center items-center">
     <form
-      className="bg-gradient-to-tl  from-black to-gray-600 text-white rounded-lg bg-opacity-65 absolute p-12 w-4/12 mx-auto my-20 right-0 left-0"
+      className="bg-gradient-to-tl  from-black to-gray-600 text-white rounded-lg bg-opacity-65 absolute p-12 w-4/12 mx-auto mt-[0] right-0 left-0"
       onSubmit={(e) => e.preventDefault()}
     >
       <h1 className="font-bold text-3xl py-4">{isSignUpForm ? "Sign Up" : "Sign In"}</h1>
@@ -48,14 +53,6 @@ const Login = () => {
         className="p-4 my-2 font-bold w-full bg-gray-700 hover:border-white bg-opacity-80 text-white"
       />
       
-      {isSignUpForm && (
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          className="p-4 my-2 font-bold w-full bg-gray-700 hover:border-white bg-opacity-80 text-white"
-        />
-      )}
-      
       <button
         className="p-4 my-6 text-black font-bold bg-gray-200 hover:bg-gray-500 hover:text-white w-full rounded-lg hover:cursor-pointer"
       >
@@ -63,6 +60,7 @@ const Login = () => {
       </button>
       
     </form>
+  </div>
   </div>
   )
 }
