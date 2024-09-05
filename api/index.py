@@ -31,7 +31,12 @@ def register():
         'otp': otp,
         'otp_expiry': datetime.datetime.utcnow() + datetime.timedelta(seconds=60)
     }
-    mongo.db.non_verified_users.insert_one(temp_user)
+
+    if mongo.db.non_verified_users.find_one({'email': data['email']}):
+        mongo.db.non_verified_users.update_one({'email': data['email']}, {'$set': temp_user})
+    else:
+        mongo.db.non_verified_users.insert_one(temp_user)
+
     return jsonify({'message': 'An OTP has been sent to your email'}), 201
 
 @app.route('/api/verify-email', methods=['POST'])
@@ -41,6 +46,7 @@ def verifyEmail():
     if not user:
         return jsonify({'message': 'User not found'}), 404
     
+    print(user['otp'], data['otp'], type(user['otp']), type(data['otp']))
     if user['otp'] != data['otp']:
         return jsonify({'message': 'Invalid OTP'}), 400
     
