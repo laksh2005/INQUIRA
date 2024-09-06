@@ -1,11 +1,11 @@
 import smtplib
 import pyotp
 from email.mime.text import MIMEText
+import os
 
-key = ""
-totp = pyotp.TOTP(key)
-SENDER_EMAIL = ""
-SENDER_PASSWORD = ""
+totp = pyotp.TOTP(os.getenv("OTP_KEY"))
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+SENDER_PASSWORD = os.getenv("SENDER_PASSWORD")
 
 def send_email(receiver_email, msg):
     try:
