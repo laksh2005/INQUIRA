@@ -7,7 +7,7 @@ const Faqs = () => {
     <h1 className="font-bold text-4xl text-center text-white mb-20">
         <span className="text-white">F</span>requently
         <span className="text-white"> A</span>sked 
-        <span className="text-white"> Q</span>uestions
+        <span className="text-white"> Q</span>uestion<span className="text-white">s</span>
     </h1>
 
     <div className="px-10 w-7/12 ques-container ">
