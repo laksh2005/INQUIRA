@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-<div className="bg-black text-white py-10">
+<div className="bg-black text-white py-10 border-t-red-200">
   <div className="container mx-auto px-8 flex flex-wrap justify-between items-start">
 
     <div className="w-full md:w-1/4 mb-6">
@@ -19,7 +19,7 @@ const Footer = () => {
         <li className="mb-2"><a className="text-gray-400 hover:text-white"><Link to="/info">Info</Link></a></li>
         <li className="mb-2"><a className="text-gray-400 hover:text-white"><Link to="/guide">Guide</Link></a></li>
         <li className="mb-2"><a className="text-gray-400 hover:text-white"><Link to="/contactus">Contact Us</Link></a></li>
-        <li className="mb-2"><a className="text-gray-400 hover:text-white"><Link to="/aboutus">About Us</Link></a></li>
+        <li className="mb-2"><a className="text-gray-400 hover:text-white"><Link to="/collab">Collaborators</Link></a></li>
       </ul>
     </div>
 
@@ -29,9 +29,9 @@ const Footer = () => {
         <input 
           type="email" 
           placeholder="Enter email address" 
-          className="p-2 rounded-l-lg w-full text-white bg-black hover:border border-white"
+          className="p-2 rounded-l-lg w-full text-white bg-gray-900 hover:border border-white"
         />
-        <button className="bg-white hover:bg- text-black font-bold px-4 py-2 rounded-r-lg">Subscribe</button>
+        <button className="bg-gradient-to-r from-custom1 to-custom2 text-black font-bold px-4 py-2 rounded-r-lg">Subscribe</button>
       </form>
     </div>
   </div>

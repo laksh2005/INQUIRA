@@ -3,8 +3,9 @@ import Landing from "./Landing"
 import Login from "./Login";
 import Info from "./Info"
 import ContactUs from "./ContactUs"
-import AboutUs from "./AboutUs"
+import Collaborators from "./Collaborators";
 import Guide from "./Guide"
+import Bot from "./Bot";
 
 const Body = () => {
 
@@ -22,8 +23,8 @@ const Body = () => {
             element: <ContactUs />
         },
         {
-            path:"/aboutus",
-            element: <AboutUs />
+            path:"/collab",
+            element: <Collaborators />
         },
         {
             path:"/info",
@@ -33,6 +34,10 @@ const Body = () => {
             path:"/guide",
             element: <Guide />
         },
+        {
+            path:"/chatbot",
+            element: <Bot />
+        }
     ])
     
   return (
