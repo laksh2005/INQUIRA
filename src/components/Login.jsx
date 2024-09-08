@@ -85,7 +85,7 @@ const Login = () => {
 
       <div className="bg-gray-900 min-h-screen flex justify-center items-center">
         <form
-          className="bg-black text-white rounded-lg bg-opacity-65 absolute p-12 w-4/12 mx-auto mt-[0] right-0 left-0"
+          className="bg-black text-white rounded-lg bg-opacity-65 absolute p-12 w-4/12 mx-auto mt-0 right-0 left-0"
           onSubmit={(e) => e.preventDefault()}
         >
           {isOTPForm ? (

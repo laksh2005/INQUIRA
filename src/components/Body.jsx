@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Landing from "./Landing"
 import Login from "./Login";
-import Info from "./Info"
+import Explore from "./Explore"
 import ContactUs from "./ContactUs"
 import Collaborators from "./Collaborators";
 import Guide from "./Guide"
@@ -27,8 +27,8 @@ const Body = () => {
             element: <Collaborators />
         },
         {
-            path:"/info",
-            element: <Info />
+            path:"/explore",
+            element: <Explore />
         },
         {
             path:"/guide",

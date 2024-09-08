@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const faqsData = [
     {
@@ -36,15 +39,35 @@ const faqsData = [
 ]
 
 const Faqs = () => {
-    const [openindex, setopenIndex] = useState(null);
+
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".faq-item", {
+      opacity: 0,
+      y:50,
+      duration: 4,
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: ".faqs-container",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+        toggleActions: "play none none reverse"
+      }
+    });
+  }, []);
+
+  const [openindex, setopenIndex] = useState(null);
 
     const toggleFAQ=(index)=>{
         setopenIndex(openindex === index ? null : index);
     };
 
   return (
-    <div className="px-8 py-20 flex flex-col items-center space-x-5 bg-black">
-        <h1 className="font-bold text-4xl text-center mb-20 bg-gradient-to-r from-custom1 to-custom2 text-transparent bg-clip-text">
+    <div className="faqs-component px-8 py-20 flex flex-col items-center space-x-5 bg-black">
+        <h1 className="title big-text font-bold text-4xl text-center mb-20 bg-gradient-to-r from-custom1 to-custom2 text-transparent bg-clip-text">
             <span className="text-white">F</span>requently
             <span className="text-white"> A</span>sked 
             <span className="text-white"> Q</span>uestion<span className="text-white">s</span>
@@ -54,9 +77,9 @@ const Faqs = () => {
         {faqsData.map((faq, index) => (
           <div
             key={index}
-            className={`mb-5 rounded-full text-white border ${openindex === index ? 'border-custom2' : 'border-custom1'}`}
+            className={`mb-5 rounded-full  transition-transform transform hover:-translate-y-3 hover:shadow-lg duration-300 text-white border ${openindex === index ? 'border-pink-400' : 'border-custom1'}`}
           >
-            <div className="flex justify-between px-6 py-1 m-2 cursor-pointer space-y-2" onClick={() => toggleFAQ(index)}
+            <div className="ques-box flex justify-between px-6 py-1 m-4 cursor-pointer space-y-3" onClick={() => toggleFAQ(index)}
             >
               <h2 className="font-bold text-lg">{faq.question}</h2>
               <span className="text-2xl text-white font-bold">
@@ -68,7 +91,7 @@ const Faqs = () => {
                 openindex === index ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
               }`}
             >
-              <p className="font-semibold">{faq.answer}</p>
+              <p className="font-semibold m-3">{faq.answer}</p>
             </div>
           </div>
         ))}

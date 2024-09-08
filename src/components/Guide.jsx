@@ -1,22 +1,44 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Guide = () => {
+
+  useGSAP(() => {
+    gsap.to(".guide-img", {
+      y: 20,
+      duration: 2, 
+      repeat: -1, 
+      yoyo: true, 
+      ease: "power1.inOut", 
+    });
+  }, []);
+
+  useGSAP(() => {
+    gsap.from(".text-box", {
+      opacity:0,
+      duration: 1,
+      delay:0.5, 
+      y:-20
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-gray-200 font-sans">
       <Header />
       <div className="flex whole">
         <div className="flex container mx-auto pt-6 pl-6 pb-6 max-w-4xl ml-20 items-center">
-          <div className="flex-1 mr-10">
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-custom1 to-custom2 text-transparent bg-clip-text mb-6">
-              Guide to Using Our Chatbot
+          <div className="flex-1 mr-10 z-20 text-box">
+            <h1 className="text-5xl text-center font-extrabold bg-gradient-to-r from-custom1 to-custom2 text-transparent bg-clip-text mb-6">
+              Guide to GAILBOT
             </h1>
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400 mb-4">
+            <div className="bg-gray-900 p-6 rounded-3xl shadow-lg">
+              <h2 className="text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-l from-white to-custom2 mb-4">
                 Getting Started
               </h2>
-              <ul className="list-disc list-inside mb-4">
+              <ul className="list-disc text-lg list-inside mb-4">
                 <li className="mb-2">
                   Find the chat icon at the bottom right corner of your screen
                   and click on it to open the chatbot.
@@ -42,10 +64,10 @@ const Guide = () => {
                   or requesting further assistance if necessary.
                 </li>
               </ul>
-              <h2 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400 mb-4">
+              <h2 className="text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-l from-white to-custom1 mb-4">
                 Tips
               </h2>
-              <ul className="list-disc list-inside">
+              <ul className="list-disc list-inside text-lg text-lg">
                 <li className="mb-2">
                   Ensure your questions are clear and detailed to receive
                   accurate responses.
@@ -68,9 +90,9 @@ const Guide = () => {
         </div>
         <div className="flex-shrink-0 ml-auto flex items-center">
           <img
-            src="image.png"
+            src="guide.png"
             alt="Chatbot"
-            className="w-[600px] h-auto mr-16 mt-16 rounded-[20px]"
+            className="w-[600px] h-auto mr-16 mt-16 rounded-[20px] z-10 guide-img"
           />
         </div>
       </div>

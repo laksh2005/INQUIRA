@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-<div className="bg-black text-white py-10 border-t-red-200">
-  <div className="container mx-auto px-8 flex flex-wrap justify-between items-start">
+<div className="bg-black text-white py-10">
+  <div className="container mx-auto px-8 py-10 flex flex-wrap justify-between items-start p-2 border-t border-t-gray-100">
 
     <div className="w-full md:w-1/4 mb-6">
       <h2 className="font-bold text-xl mb-4">GAIL Bot</h2>
@@ -16,7 +16,7 @@ const Footer = () => {
     <div className="w-full md:w-1/4 mb-6">
       <h3 className="font-bold text-lg mb-4">Go Through</h3>
       <ul>
-        <li className="mb-2"><a className="text-gray-400 hover:text-white"><Link to="/info">Info</Link></a></li>
+        <li className="mb-2"><a className="text-gray-400 hover:text-white"><Link to="/explore">Explore</Link></a></li>
         <li className="mb-2"><a className="text-gray-400 hover:text-white"><Link to="/guide">Guide</Link></a></li>
         <li className="mb-2"><a className="text-gray-400 hover:text-white"><Link to="/contactus">Contact Us</Link></a></li>
         <li className="mb-2"><a className="text-gray-400 hover:text-white"><Link to="/collab">Collaborators</Link></a></li>
@@ -36,7 +36,7 @@ const Footer = () => {
     </div>
   </div>
   
-  <div className="text-center text-gray-500 mt-10">
+  <div className="text-center text-gray-500 mt-4">
       ©2024 GAIL Bot, All rights reserved.
   </div>
 </div>

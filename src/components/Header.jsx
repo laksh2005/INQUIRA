@@ -26,7 +26,7 @@ const Header = () => {
           <li className="px-4 text-white font-bold hover:bg-gradient-to-r from-custom1 to-custom2 hover:text-black rounded-full transition duration-300 ease-in-out"><Link to='/'>Home</Link></li>
           <li className="px-4 text-white font-bold hover:bg-gradient-to-r from-custom1 to-custom2 hover:text-black rounded-full transition duration-300 ease-in-out"><Link to='/chatbot'>GAIL Bot</Link></li>
           <li className="px-4 text-white font-bold hover:bg-gradient-to-r from-custom1 to-custom2 hover:text-black rounded-full transition duration-300 ease-in-out"><Link to='/guide'>Guide</Link></li>
-          <li className="px-4 text-white font-bold hover:bg-gradient-to-r from-custom1 to-custom2 hover:text-black rounded-full transition duration-300 ease-in-out"><Link to='/info'>Info</Link></li>
+          <li className="px-4 text-white font-bold hover:bg-gradient-to-r from-custom1 to-custom2 hover:text-black rounded-full transition duration-300 ease-in-out"><Link to='/explore'>Explore</Link></li>
         </ul>
       </div>
     
