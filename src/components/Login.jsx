@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import axios from 'axios';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -77,15 +79,24 @@ const Login = () => {
     }
   };
 
+  useGSAP(() => {
+    gsap.from(".login-form", {
+      opacity:0,
+      duration: 1,
+      delay:0.75, 
+    
+    });
+  }, []);
+
   return (
     <div>
       <div>
         <Header />
       </div>
 
-      <div className="bg-gray-900 min-h-screen flex justify-center items-center">
+      <div className="bg-black min-h-screen flex justify-center items-center">
         <form
-          className="bg-black text-white rounded-lg bg-opacity-65 absolute p-12 w-4/12 mx-auto mt-0 right-0 left-0"
+            className="bg-black login-form text-white bg-opacity-50 hover:bg-opacity-100 rounded-3xl absolute p-12 w-4/12 mx-auto -mt-28 right-0 left-0 border border-white hover:border-pink-500 transition-colors duration-600 ease-in-out"
           onSubmit={(e) => e.preventDefault()}
         >
           {isOTPForm ? (
@@ -107,7 +118,7 @@ const Login = () => {
             </>
           ) : (
             <>
-            <h1 className="font-bold text-3xl py-4 bg-gradient-to-l from-custom1 to-custom2 text-transparent bg-clip-text">{isSignUpForm ? "Sign Up" : "Sign In"}</h1>
+            <h1 className="font-extrabold text-4xl py-4 bg-gradient-to-l from-custom1 to-custom2 text-transparent bg-clip-text">{isSignUpForm ? "Sign Up" : "Sign In"}</h1>
             <p className="p-4 text-gray-300 hover:text-white cursor-pointer" onClick={toggleSignUpForm}>
               {isSignUpForm ? "Already a user? Sign In now." : "New to GAIL Bot? Sign up now."}
             </p>
@@ -139,7 +150,7 @@ const Login = () => {
               />
 
               <button
-              className="p-4 my-6 text-black font-bold bg-gradient-to-r from-custom1 to-custom2 hover:bg-gradient-to-l from-custom1 to-custom2 text-white text-lg py-3 px-8 mt-3 transition duration-300 ease-in-out hover:text-white hover:border-white border border-transparent w-full"
+              className="p-4 my-6 w-full font-bold rounded-xl bg-gradient-to-r from-custom1 to-custom2 hover:bg-gradient-to-l from-custom1 to-custom2 text-white text-lg py-3 px-8 mt-3 transition duration-300 ease-in-out hover:text-white hover:border-white border border-transparent"
               >
                 {isSignUpForm ? "Sign Up" : "Sign In"}
               </button>

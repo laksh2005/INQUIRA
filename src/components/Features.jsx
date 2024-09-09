@@ -30,8 +30,8 @@ const Features = () => {
   }, []);
 
   return (
-    <div className="px-8 py-20 font-sans bg-black mt-[-50px]">
-      <div className="card-container flex flex-col">
+    <div className="px-8 py-20 font-sans bg-black">
+      <div className="card-container flex flex-col z-10">
         <div
           className="card flex flex-col md:flex-row items-center shadow-lg w-full space-y-4"
           ref={(el) => cardsRef.current[0] = el} 
@@ -39,8 +39,8 @@ const Features = () => {
           <div className="feature-img flex w-full md:w-1/2 mx-8">
             <img src={F1} className="" />
           </div>
-          <div className="feature-card transform transition-transform duration-300 hover:-translate-y-1 border border-custom1 hover:border-blue-300 w-full md:w-1/2 p-8 text-center rounded-3xl">
-            <h2 className="feature text-4xl md:text-6xl font-bold bg-gradient-to-l from-custom1 to-custom2 text-transparent bg-clip-text mb-8">
+          <div className="z-10 feature-card transform transition-transform duration-300 hover:-translate-y-1 border border-custom1 hover:border-blue-300 w-full md:w-1/2 p-8 text-center rounded-3xl">
+            <h2 className="feature text-4xl p-2 md:text-6xl font-bold bg-gradient-to-r from-custom1 to-custom2 text-transparent bg-clip-text mb-8 relative z-20">
               Document Processing
             </h2>
             <p className="feature-desc text-white text-lg md:text-xl">
@@ -57,10 +57,10 @@ const Features = () => {
             <img src="F2.png" className="rounded-lg" />
           </div>
           <div className="feature-card transform transition-transform duration-300 hover:-translate-y-1 border border-custom2 hover:border-pink-400 w-full md:w-6/12 p-8 text-center rounded-3xl">
-            <h2 className="feature text-4xl md:text-6xl font-bold bg-gradient-to-r from-custom1 to-custom2 text-transparent bg-clip-text mb-8">
+            <h2 className="feature text-4xl md:text-6xl p-2 font-bold bg-gradient-to-r from-custom1 to-custom2 text-transparent bg-clip-text mb-10 leading-tight">
               Filtering
             </h2>
-            <p className="feature-desc text-white text-l md:text-xl">
+            <p className="feature-desc text-white text-lg md:text-xl">
               Implements a system-maintained dictionary to filter out inappropriate language, maintaining a professional environment.
             </p>
           </div>
@@ -74,7 +74,7 @@ const Features = () => {
             <img src="F3.png" className="rounded-lg" />
           </div>
           <div className="feature-card transform transition-transform duration-300 hover:-translate-y-1 border border-custom1 hover:border-blue-400 w-full md:w-1/2 p-8 text-center rounded-3xl">
-            <h2 className="feature text-4xl md:text-6xl font-bold bg-gradient-to-l from-custom1 to-custom2 text-transparent bg-clip-text mb-8">
+            <h2 className="feature text-4xl md:text-6xl p-2 font-bold bg-gradient-to-l from-custom1 to-custom2 text-transparent bg-clip-text mb-8">
               Security with 2FA
             </h2>
             <p className="feature-desc text-white text-lg md:text-xl">
@@ -90,7 +90,7 @@ const Features = () => {
             <img src="F4.png" className="rounded-lg" />
           </div>
           <div className="feature-card transform transition-transform duration-300 hover:-translate-y-1 border border-custom2 hover:border-pink-400 w-full md:w-1/2 p-8 text-center rounded-3xl">
-            <h2 className="feature text-4xl md:text-6xl font-bold bg-gradient-to-r from-custom1 to-custom2 text-transparent bg-clip-text mb-8">
+            <h2 className="feature text-4xl p-2 md:text-6xl font-bold bg-gradient-to-r from-custom1 to-custom2 text-transparent bg-clip-text mb-8">
               Performance Optimization
             </h2>
             <p className="feature-desc text-white text-lg md:text-xl">

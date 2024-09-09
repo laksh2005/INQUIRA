@@ -66,7 +66,7 @@ const Faqs = () => {
     };
 
   return (
-    <div className="faqs-component px-8 py-20 flex flex-col items-center space-x-5 bg-black">
+    <div className="faqs-component px-8 py-20 flex flex-col items-center bg-black">
         <h1 className="title big-text font-bold text-4xl text-center mb-20 bg-gradient-to-r from-custom1 to-custom2 text-transparent bg-clip-text">
             <span className="text-white">F</span>requently
             <span className="text-white"> A</span>sked 
@@ -81,8 +81,8 @@ const Faqs = () => {
           >
             <div className="ques-box flex justify-between px-6 py-1 m-4 cursor-pointer space-y-3" onClick={() => toggleFAQ(index)}
             >
-              <h2 className="font-bold text-lg">{faq.question}</h2>
-              <span className="text-2xl text-white font-bold">
+              <h2 className="font-bold text-lg flex-1 text-left my-auto">{faq.question}</h2>
+              <span className="text-2xl text-white font-bold mx-4">
                 {openindex === index ? "-" : "+"}
               </span>
             </div>
