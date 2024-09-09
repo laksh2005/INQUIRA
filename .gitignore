@@ -28,3 +28,6 @@ venv/
 
 # cache
 __pycache__/
+
+# every pdf files
+*.pdf
