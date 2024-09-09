@@ -4,9 +4,12 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [sub, setSub] = useState('');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setEmail('');
+    setSub('')
     try {
       const response = await fetch('/api/subscribe', {
         method: 'POST',
@@ -81,6 +84,14 @@ const Footer = () => {
               Subscribe
             </button>
           </form>
+
+               
+          {sub && (
+            <div className="mt-4 text-sm text-center text-white">
+              {sub}
+            </div>
+          )}
+          
           {/* <form className="flex mt-6">
             <input
               type="email"
