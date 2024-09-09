@@ -2,28 +2,20 @@ import React from 'react';
 
 const FilePicker = ({ onFileUpload }) => {
   const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
+    const files = event.target.files;
 
-  const handleFileUpload = () => {
-    if (selectedFile) {
-      // Implement file upload logic here
-      console.log("File selected:", selectedFile.name);
+    if (files.length > 0) {
+      onFileUpload(files);
     }
   };
 
   return (
     <div>
-      <input type="file" onChange={handleFileChange} />
-      {selectedFile && (
-        <div>
-          <p>Selected File: {selectedFile.name}</p>
-          <button onClick={handleFileUpload}>Upload</button>
-        </div>
-      )}
+      <input type="file" accept="application/pdf" multiple onChange={handleFileChange} /> {/* File input */}
     </div>
   );
 };
 
 export default FilePicker;
+
 
