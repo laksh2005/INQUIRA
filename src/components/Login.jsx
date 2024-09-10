@@ -35,6 +35,7 @@ const Login = () => {
   };
 
   const registerHandler = async () => {
+    console.log('1')
     if (!username || !email || !password) {
       // TODO: Add error handling
       return;
@@ -151,6 +152,7 @@ const Login = () => {
 
               <button
               className="p-4 my-6 w-full font-bold rounded-xl bg-gradient-to-r from-custom1 to-custom2 hover:bg-gradient-to-l from-custom1 to-custom2 text-white text-lg py-3 px-8 mt-3 transition duration-300 ease-in-out hover:text-white hover:border-white border border-transparent"
+              onClick={authHandler}
               >
                 {isSignUpForm ? "Sign Up" : "Sign In"}
               </button>
