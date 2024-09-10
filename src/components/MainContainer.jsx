@@ -45,7 +45,7 @@ const MainContainer = () => {
         </p>
 
         <button className="bot-button bg-gradient-to-r from-custom1 to-custom2 hover:bg-gradient-to-l from-custom1 to-custom2 flex space-x-4 text-white text-lg font-bold py-3 px-8 rounded-full mt-3 transition duration-300 ease-in-out hover:bg-black hover:text-white hover:border-white border border-transparent">
-          <Link to="/chatbot" className="flex items-center justify-center space-x-2">
+          <Link to="/login" className="flex items-center justify-center space-x-2">
             <span>Start Chatting</span>
           </Link>
           <img src="arrow.svg" alt="arrow icon" className="w-6 h-6 text-white" />

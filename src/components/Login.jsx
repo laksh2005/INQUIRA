@@ -3,6 +3,7 @@ import Header from './Header';
 import axios from 'axios';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -11,6 +12,7 @@ const Login = () => {
   const [otp, setOtp] = useState('');
   const [isSignUpForm, setIsSignUpForm] = useState(false);
   const [isOTPForm, setIsOTPForm] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSignUpForm = () => {
     setIsSignUpForm(!isSignUpForm);
@@ -75,6 +77,8 @@ const Login = () => {
     try {
       const res = await axios.post(apiEndpoint, { email, otp });
       console.log(res);
+
+
     } catch (err) {
       console.log(err);
     }
@@ -111,8 +115,11 @@ const Login = () => {
                 onChange={(e) => setOtp(e.target.value)}
               />
               <button
-                className="p-4 my-6 text-black font-bold bg-gray-200 hover:bg-gray-500 hover:text-white w-full rounded-lg hover:cursor-pointer"
-                onClick={otpVerificationHandler}
+                className="p-4 my-6 text-black font-bold bg-gray-200 hover:bg-gray-500 hover:text-white" onClick={() => {
+                  otpVerificationHandler();
+                  navigate('/chatbot');
+                }}
+
               >
                 Submit
               </button>
