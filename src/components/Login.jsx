@@ -78,7 +78,7 @@ const Login = () => {
       const res = await axios.post(apiEndpoint, { email, otp });
       console.log(res);
 
-
+      // res.data["access_token"]
     } catch (err) {
       console.log(err);
     }

@@ -53,13 +53,31 @@ def verifyEmail():
     if user['otp_expiry'] < datetime.datetime.utcnow():
         return jsonify({'message': 'OTP expired'}), 400
     
-    mongo.db.users.insert_one({
+    user = mongo.db.users.insert_one({
         'username': user['username'],
         'email': user['email'],
         'password': user['password']
     })
     mongo.db.non_verified_users.delete_one({'email': data['email']})
-    return jsonify({'message': 'User verified'}), 201
+
+    access_token_expiration = datetime.datetime.utcnow() + datetime.timedelta(minutes=15)
+    refresh_token_expiration = datetime.datetime.utcnow() + datetime.timedelta(days=7)
+
+    access_token = auth.create_token(
+        user['_id'],
+        access_token_expiration,
+        app.config['SECRET_KEY']
+    )
+    refresh_token = auth.create_token(
+        user['_id'],
+        refresh_token_expiration,
+        app.config['SECRET_KEY']
+    )
+
+    response = make_response(jsonify({'access_token': access_token}))
+    response.set_cookie('refresh_token', refresh_token, httponly=True, secure=True, samesite='Lax')
+    
+    return response
 
 @app.route('/api/login', methods=['POST'])
 def login():
