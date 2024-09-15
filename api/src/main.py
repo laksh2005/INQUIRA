@@ -123,6 +123,7 @@ def initialize_database(list_file_obj, chunk_size = 600, chunk_overlap = 40):
     print("Done!")
     return vector_db, collection_name, "Complete!"
 
+import gradio as gr
 
 def initialize_LLM(llm_temperature, max_tokens, top_k, vector_db, progress=gr.Progress()):
     # print("llm_option",llm_option)

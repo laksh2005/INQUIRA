@@ -16,8 +16,9 @@ const Collaborators = () => {
           <div className="text-center space-y-10 z-20 border border-white rounded-full p-14">
             <p className="text-2xl font-bold text-white"><span className='bg-custom1 font-extrabold text-transparent bg-clip-text'>Abhijeet Gupta :</span> Pre Final Year Engineering student, contributed in Backend Web Development</p>
             <p className="text-2xl font-bold text-white"><span className='bg-custom2 font-extrabold text-transparent bg-clip-text'>Chetna Madaan :</span> Pre Final Year Engineering student, aided in UI & Front End Web Development</p>
-            <p className="text-2xl font-bold text-white"><span className='bg-custom1 font-extrabold text-transparent bg-clip-text'>Laksh Nijhawan :</span> Sophomore Engineering student, contributed in Front End Web Development & UI</p>
-            <p className="text-2xl font-bold text-white"><span className='bg-custom2 font-extrabold text-transparent bg-clip-text'>Shubhra Narang :</span> Sophomore Engineering student, contributed in Front End Web Development & UI</p>
+            <p className="text-2xl font-bold text-white"><span className='bg-custom1 font-extrabold text-transparent bg-clip-text'>Jatin Singh Sagoi :</span> Final Year Engineering student, aided in Machine Learning and Bot Testing</p>
+            <p className="text-2xl font-bold text-white"><span className='bg-custom2 font-extrabold text-transparent bg-clip-text'>Laksh Nijhawan :</span> Sophomore Engineering student, contributed in Front End Web Development & UI</p>
+            <p className="text-2xl font-bold text-white"><span className='bg-custom1 font-extrabold text-transparent bg-clip-text'>Shubhra Narang :</span> Sophomore Engineering student, contributed in Front End Web Development & UI</p>
             <p className="text-2xl font-bold text-white"><span className='bg-custom2 font-extrabold text-transparent bg-clip-text'>Raghav Aggarwal :</span>Sophomore Engineering student, contributed in Backend Web Development</p>
           </div>
         </div>
