@@ -17,14 +17,14 @@ const Header = () => {
           <img 
             onClick={()=>navigate('/')}
             src={LOGO_URL} 
-            className="w-40 p-3 ml-[40px]" 
+            className="w-44 p-0 ml-[40px]" 
           />
       </div>
 
       <div className="flex items-center font-sans">
         <ul className="flex p-4 m-4 space-x-8 items-center justify-center">
           <li className="px-4 text-white font-bold hover:bg-gradient-to-r from-custom1 to-custom2 hover:text-black rounded-full transition duration-300 ease-in-out"><Link to='/'>Home</Link></li>
-          <li className="px-4 text-white font-bold hover:bg-gradient-to-r from-custom1 to-custom2 hover:text-black rounded-full transition duration-300 ease-in-out"><Link to='/chatbot'>GAIL Bot</Link></li>
+          <li className="px-4 text-white font-bold hover:bg-gradient-to-r from-custom1 to-custom2 hover:text-black rounded-full transition duration-300 ease-in-out"><Link to='/chatbot'>INQUIRA Bot</Link></li>
           <li className="px-4 text-white font-bold hover:bg-gradient-to-r from-custom1 to-custom2 hover:text-black rounded-full transition duration-300 ease-in-out"><Link to='/guide'>Guide</Link></li>
           <li className="px-4 text-white font-bold hover:bg-gradient-to-r from-custom1 to-custom2 hover:text-black rounded-full transition duration-300 ease-in-out"><Link to='/explore'>Explore</Link></li>
         </ul>
