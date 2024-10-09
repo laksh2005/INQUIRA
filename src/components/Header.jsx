@@ -16,8 +16,8 @@ const Header = () => {
       <div className="logocontainer pl-6">
           <img 
             onClick={()=>navigate('/')}
-            src={LOGO_URL} 
-            className="w-44 p-0 ml-[40px]" 
+            src= "logo.jpg"npm 
+            className="w-44 p-1 ml-[40px]" 
           />
       </div>
 
