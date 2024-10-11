@@ -16,8 +16,8 @@ const Collaborators = () => {
           <div className="text-center space-y-10 z-20 border border-white rounded-full p-14">
             <p className="text-2xl font-bold text-white"><span className='bg-custom1 font-extrabold text-transparent bg-clip-text'>Laksh Nijhawan :</span> Sophomore Engineering student</p>
             <p className="text-2xl font-bold text-white"><span className='bg-custom2 font-extrabold text-transparent bg-clip-text'>Chetna Madaan :</span> Pre Final Year Engineering student</p>
-            <p className="text-2xl font-bold text-white"><span className='bg-custom1 font-extrabold text-transparent bg-clip-text'>Raghav Aggarwal :</span> Sophomore Engineering student</p>
-            <p className="text-2xl font-bold text-white"><span className='bg-custom2 font-extrabold text-transparent bg-clip-text'>Grishi Sachdeva :</span> Sophomore Engineering student</p>
+            <p className="text-2xl font-bold text-white"><span className='bg-custom1 font-extrabold text-transparent bg-clip-text'>Grishi Sachdeva :</span> Sophomore Engineering student</p>
+            <p className="text-2xl font-bold text-white"><span className='bg-custom2 font-extrabold text-transparent bg-clip-text'>Raghav Aggarwal :</span> Sophomore Engineering student</p>
           </div>
         </div>
       </div>
