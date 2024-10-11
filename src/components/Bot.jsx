@@ -6,14 +6,20 @@ import FilePicker from './FilePicker';
 const Bot = () => {
   const [showFilePicker, setShowFilePicker] = useState(false);
   const [uploadStatus, setUploadStatus] = useState('');
-  const [accessToken, setAccessToken] = useState(''); 
+  const [namespace, setNamespace] = useState(''); 
+  const [query, setQuery] = useState('');
+  const [response, setResponse] = useState('');
 
   const handleButtonClick = () => {
-    setShowFilePicker(true); 
+    setShowFilePicker(true);
   };
 
-  const handleAccessTokenChange = (e) => {
-    setAccessToken(e.target.value); 
+  const handleNamespaceChange = (e) => {
+    setNamespace(e.target.value); 
+  };
+
+  const handleQueryChange = (e) => {
+    setQuery(e.target.value);
   };
 
   const handleFileUpload = async (files) => {
@@ -22,18 +28,19 @@ const Bot = () => {
       formData.append(`file${index}`, file);
     });
 
-    formData.append('accessToken', accessToken);
+
+    formData.append('namespace', namespace);
 
     try {
-      const response = await fetch('http://localhost:5000/upload', {
+      const response = await fetch('http://localhost:8000/upload', {
         method: 'POST',
         body: formData,
       });
       if (response.ok) {
         setUploadStatus('Files uploaded successfully');
       } else {
-        setUploadStatus('File upload failed');
-        console.error('File upload failed', response.statusText);
+        setUploadStatus(`File upload failed: ${response.statusText}`);
+        console.error('File upload failed', await response.text());
       }
     } catch (error) {
       setUploadStatus('Error uploading files');
@@ -41,16 +48,47 @@ const Bot = () => {
     }
   };
 
+  const handleQuerySubmit = async () => {
+    if (!query) {
+      setResponse('Please provide a query.');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:8000/query', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          namespace: namespace,
+          query,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setResponse(data.response || 'No response from bot');
+      } else {
+        setResponse(`Failed to get response from the bot: ${response.statusText}`);
+        console.error('Failed to get bot response', await response.text());
+      }
+    } catch (error) {
+      setResponse('Error connecting to the bot');
+      console.error('Error connecting to bot:', error.message);
+    }
+  };
+
   return (
     <div className="bg-black min-h-screen">
       <Header />
       <div className="flex flex-col justify-center items-center">
-
+        
         <input
           type="text"
-          placeholder="Enter Access Token"
-          value={accessToken}
-          onChange={handleAccessTokenChange} // Input for access token
+          placeholder="Enter Namespace Token"
+          value={namespace}
+          onChange={handleNamespaceChange} 
           className="mb-4 p-2 rounded border"
         />
 
@@ -63,6 +101,26 @@ const Bot = () => {
 
         {showFilePicker && <FilePicker onFileUpload={handleFileUpload} />}
         {uploadStatus && <p className="text-white mt-4">{uploadStatus}</p>}
+        
+        <textarea
+          placeholder="Enter your query..."
+          value={query}
+          onChange={handleQueryChange} 
+          className="mt-4 mb-4 p-2 rounded border w-80"
+        ></textarea>
+
+        <button
+          className="bg-green-500 text-white p-2 rounded mb-4"
+          onClick={handleQuerySubmit}
+        >
+          Submit Query
+        </button>
+
+        {response && (
+          <div className="border-4 border-[rgb(125,60,152)] p-4 rounded bg-white text-black">
+            {response}
+          </div>
+        )}
       </div>
       <Footer />
     </div>
@@ -70,6 +128,8 @@ const Bot = () => {
 };
 
 export default Bot;
+
+
 
 
 
