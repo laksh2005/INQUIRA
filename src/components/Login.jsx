@@ -128,7 +128,7 @@ const Login = () => {
             <>
             <h1 className="font-extrabold text-4xl py-4 bg-gradient-to-l from-custom1 to-custom2 text-transparent bg-clip-text">{isSignUpForm ? "Sign Up" : "Sign In"}</h1>
             <p className="p-4 text-gray-300 hover:text-white cursor-pointer" onClick={toggleSignUpForm}>
-              {isSignUpForm ? "Already a user? Sign In now." : "New to INQUIRA? Sign up now"}
+              {isSignUpForm ? "Already a user? Sign In now." : "New to INQUIRA? Sign up now."}
             </p>
 
               {isSignUpForm && (

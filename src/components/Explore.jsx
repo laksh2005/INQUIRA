@@ -90,7 +90,7 @@ const Info = () => {
 
            <ul className="list-disc list-inside text-lg mb-4 space-y-5">
              <p className="mb-2">
-             This project utilizes advanced deep learning and NLP techniques, relying on open-source tools and resources. GAIL (INDIA) LTD will not provide any hardware, software, license, or data resources. Our team has utilized free and open-source resources to develop this solution.
+             This project utilizes advanced deep learning and NLP techniques, relying on open-source tools and resources. Our team has utilized free and open-source resources to develop this solution.
              </p>
              <p className="mb-4">
              Join us in revolutionizing how organizational queries are handled with cutting-edge technology and robust security!

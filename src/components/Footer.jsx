@@ -35,7 +35,7 @@ const Footer = () => {
     <div className="bg-black text-white py-10">
       <div className="container mx-auto px-8 py-10 flex flex-wrap justify-between items-start p-2 border-t border-t-gray-100">
         <div className="w-full md:w-1/4 mb-6">
-          <h2 className="font-bold text-xl mb-4">INQUIRA.</h2>
+          <h2 className="font-bold text-xl mb-4">INQUIRA</h2>
           <p className="text-gray-400 text-lg">
             Empowering Public Sector Efficiency with AI
           </p>
@@ -106,7 +106,7 @@ const Footer = () => {
       </div>
 
       <div className="text-center text-gray-500 mt-4">
-        ©2024 INQUIRA., All rights reserved.
+        ©2024 INQUIRA, All rights reserved.
       </div>
     </div>
   );

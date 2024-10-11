@@ -32,7 +32,7 @@ const Guide = () => {
         <div className="flex container mx-auto pt-6 pl-6 pb-6 max-w-4xl ml-20 items-center">
           <div className="flex-1 mr-10 z-20 text-box">
             <h1 className="text-5xl text-center font-extrabold bg-gradient-to-r from-custom1 to-custom2 text-transparent bg-clip-text mb-6">
-              Guide to INQUIRA.
+              Guide to INQUIRA
             </h1>
             <div className="bg-gray-900 p-6 rounded-3xl shadow-lg">
               <h2 className="text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-l from-white to-custom2 mb-4">
