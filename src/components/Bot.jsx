@@ -22,17 +22,18 @@ const Bot = () => {
     setQuery(e.target.value);
   };
 
+
   const handleFileUpload = async (files) => {
     const formData = new FormData();
     Array.from(files).forEach((file, index) => {
       formData.append(`file${index}`, file);
     });
 
-
     formData.append('namespace', namespace);
 
     try {
-      const response = await fetch('http://localhost:8000/upload', {
+
+      const response = await fetch('http://localhost:5000/upload', { 
         method: 'POST',
         body: formData,
       });
@@ -55,20 +56,21 @@ const Bot = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8000/query', {
+
+      const response = await fetch('http://localhost:5000/api/chatbot', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          namespace: namespace,
+          namespace: namespace, 
           query,
         }),
       });
 
       if (response.ok) {
         const data = await response.json();
-        setResponse(data.response || 'No response from bot');
+        setResponse(data.reply || 'No response from bot'); 
       } else {
         setResponse(`Failed to get response from the bot: ${response.statusText}`);
         console.error('Failed to get bot response', await response.text());
@@ -83,7 +85,7 @@ const Bot = () => {
     <div className="bg-black min-h-screen">
       <Header />
       <div className="flex flex-col justify-center items-center">
-        
+
         <input
           type="text"
           placeholder="Enter Namespace Token"
@@ -101,7 +103,7 @@ const Bot = () => {
 
         {showFilePicker && <FilePicker onFileUpload={handleFileUpload} />}
         {uploadStatus && <p className="text-white mt-4">{uploadStatus}</p>}
-        
+ 
         <textarea
           placeholder="Enter your query..."
           value={query}
