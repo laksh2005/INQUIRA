@@ -6,9 +6,9 @@ import FilePicker from './FilePicker';
 const Bot = () => {
   const [showFilePicker, setShowFilePicker] = useState(false);
   const [uploadStatus, setUploadStatus] = useState('');
-  const [namespace, setNamespace] = useState(''); 
   const [query, setQuery] = useState('');
   const [response, setResponse] = useState('');
+  const [namespace, setNamespace] = useState(Date.now().toString());
 
   const handleButtonClick = () => {
     setShowFilePicker(true);
@@ -29,11 +29,9 @@ const Bot = () => {
       formData.append(`file${index}`, file);
     });
 
-    formData.append('namespace', namespace);
-
     try {
 
-      const response = await fetch('http://localhost:5000/upload', { 
+      const response = await fetch('https://gailbot-v1.onrender.com/upload?namespace=newwww', { 
         method: 'POST',
         body: formData,
       });
@@ -56,16 +54,17 @@ const Bot = () => {
     }
 
     try {
+      const requestBody = {
+        namespace,
+        query 
+      };
 
-      const response = await fetch('http://localhost:5000/api/chatbot', { 
+      const response = await fetch('https://gailbot-v1.onrender.com/query', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          namespace: namespace, 
-          query,
-        }),
+        body: JSON.stringify(requestBody),
       });
 
       if (response.ok) {

@@ -5,7 +5,7 @@ import requests
 app = Flask(__name__)
 CORS(app)  
 
-BOT_API_URL = 'http://localhost:8000/api/chatbot'
+BOT_API_URL = 'https://gailbot-v1.onrender.com/'
 
 @app.route('/api/chatbot', methods=['POST'])
 def chatbot():
