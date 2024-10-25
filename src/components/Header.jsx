@@ -35,13 +35,13 @@ const Header = () => {
           <Link to="/contactus">Contact Us</Link>
         </button>
 
-        {/* {!isSignUpForm && (
+         {!isSignUpForm && (
         <div 
           className="px-4 py-2 rounded-full text-white bg-gradient-to-r from-custom1 to-custom2 hover:bg-gradient-to-l from-custom1 to-custom2 font-bold transition duration-300 ease-in-out"
           onClick={toggleSignUpForm}>
           <Link to='/login'>Sign Up</Link>
         </div>
-        )}  */}
+        )}  
 
       </div>
     </div>

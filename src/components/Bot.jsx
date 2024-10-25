@@ -81,52 +81,58 @@ const Bot = () => {
   };
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-black min-h-screen text-white">
       <Header />
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center p-6 space-y-6">
 
-        <input
-          type="text"
-          placeholder="Enter Namespace Token"
-          value={namespace}
-          onChange={handleNamespaceChange} 
-          className="mb-4 p-2 rounded border"
-        />
+        <div className="w-80 p-4 rounded-lg shadow-lg bg-black border border-custom2 hover:border-pink-400">
+          <label className="text-sm text-gray-300 mb-1 block">Namespace Token</label>
+          <input
+            type="text"
+            placeholder="Enter Namespace Token"
+            value={namespace}
+            onChange={handleNamespaceChange}
+            className="w-full p-2 rounded bg-gray-800 border border-gray-600 text-white focus:outline-none focus:border-blue-500"
+          />
+        </div>
+  
+        <div className="w-80 p-4 rounded-lg shadow-lg bg-black border border-custom1 hover:border-blue-300 space-y-4">
+          <button
+            className="w-full bg-custom1 hover:bg-blue-500 text-white py-2 rounded-md"
+            onClick={handleButtonClick}
+          >
+            Upload your PDFs
+          </button>
+          {showFilePicker && <FilePicker onFileUpload={handleFileUpload} />}
+          {uploadStatus && <p className="text-green-400 text-sm">{uploadStatus}</p>}
+        </div>
 
-        <button
-          className="bg-blue-500 text-white p-2 rounded mb-4"
-          onClick={handleButtonClick}
-        >
-          Upload your PDFs
-        </button>
-
-        {showFilePicker && <FilePicker onFileUpload={handleFileUpload} />}
-        {uploadStatus && <p className="text-white mt-4">{uploadStatus}</p>}
- 
-        <textarea
-          placeholder="Enter your query..."
-          value={query}
-          onChange={handleQueryChange} 
-          className="mt-4 mb-4 p-2 rounded border w-80"
-        ></textarea>
-
-        <button
-          className="bg-green-500 text-white p-2 rounded mb-4"
-          onClick={handleQuerySubmit}
-        >
-          Submit Query
-        </button>
+        <div className="w-80 p-4 rounded-lg shadow-lg bg-black border border-custom2 hover:border-pink-400">
+          <textarea
+            placeholder="Enter your query..."
+            value={query}
+            onChange={handleQueryChange}
+            className="w-full p-2 rounded bg-gray-800 border border-gray-600 text-white focus:outline-none focus:border-green-500"
+          ></textarea>
+          <button
+            className="mt-3 w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md"
+            fixed
+          >
+            Submit Query
+          </button>
+        </div>
 
         {response && (
-          <div className="border-4 border-[rgb(125,60,152)] p-4 rounded bg-white text-black">
+          <div className="w-80 p-4 rounded-lg shadow-lg border-4 border-purple-700 bg-white text-black mt-6">
             {response}
           </div>
         )}
+  
       </div>
       <Footer />
     </div>
-  );
-};
+  )};
+  
 
 export default Bot;
 
